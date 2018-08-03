@@ -312,6 +312,7 @@ function getDistance({lat = 51.515419, lng = -0.141099} = {}) {
   const refLng = -0.141099;
 
   // haversine formula, http://www.movable-type.co.uk/scripts/latlong.html
+  // φ/λ for latitude/long­itude in radians
   const R = 6371e3; // metres
   const φ1 = toRadians(refLat);
   const φ2 = toRadians(lat);
