@@ -11,7 +11,7 @@ e.g. {name: "Paddy", address: {town: "Lerum", country: "Sweden"}} ->
 }
 
 */
-/*
+
 const obj = {
   name: "Paddy",
   address: {
@@ -32,7 +32,7 @@ const obj = {
       inner2: 'testing'
     }
   }
-}*/
+}
 
 function deepClone(obj = {}) {
   const returnObj = {};
@@ -51,7 +51,7 @@ function deepClone(obj = {}) {
   return returnObj;
 }
 
-// console.log(deepClone(obj));
+console.log(deepClone(obj));
 
 module.exports = {
   deepClone
