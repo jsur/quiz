@@ -19,7 +19,7 @@ describe('matchingPartners', () => {
   describe('getDistance', () => {
     it('Should return distance between given coordinate pair and central London in meters', () => {
       const dist = getDistance({lat: -33.8934219, lng: 151.20404600000006});
-      expect(dist).to.equal(16996054.413094975);
+      expect(dist).to.equal(16996054.41309498);
     });
     it('Should use default params when called with empty obj or without params', () => {
       const distObj = getDistance({});

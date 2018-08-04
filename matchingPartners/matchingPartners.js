@@ -308,21 +308,9 @@ const partners = [
 function toRadians(value) { return value * Math.PI / 180; };
 
 function getDistance({lat = 51.515419, lng = -0.141099} = {}) {
-  const refLat = 51.515419;
-  const refLng = -0.141099;
-
-  // haversine formula, http://www.movable-type.co.uk/scripts/latlong.html
-  // φ/λ for latitude/long­itude in radians
-  const R = 6371e3; // metres
-  const φ1 = toRadians(refLat);
-  const φ2 = toRadians(lat);
-  const Δφ = toRadians(lat-refLat);
-  const Δλ = toRadians(lng-refLng);
-  const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-          Math.cos(φ1) * Math.cos(φ2) *
-          Math.sin(Δλ/2) * Math.sin(Δλ/2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));   
-  return R * c;
+  const refLat = toRadians(51.515419);
+  const refLng = toRadians(-0.141099);
+  return 6371e3 * Math.acos(Math.sin(toRadians(lat)) * Math.sin(refLat) + Math.cos(toRadians(lat)) * Math.cos(refLat) * Math.cos(Math.abs(refLng - toRadians(lng))));
 }
 
 function getOfficeCoords(coords = '0,0') {
